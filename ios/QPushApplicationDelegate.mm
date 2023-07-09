@@ -25,6 +25,13 @@
     NotificationHandler::Instance()->submitLog(QString::fromNSString(@"device token received"));
 }
 
+-(void)application:(UIApplication *)application
+    didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler
+{
+    NotificationHandler::Instance()->submitLog(QString::fromNSString(@"notification modified"));
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
 -(void) application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSString *errorMessage = [error localizedDescription];
     NotificationHandler::Instance()->submitError(QString::fromNSString(errorMessage));
