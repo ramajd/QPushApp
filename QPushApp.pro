@@ -41,6 +41,9 @@ ios {
 
     QMAKE_INFO_PLIST = $$PWD/ios/Info.plist
 
+    PLUGINS.path = PlugIns
+    PLUGINS.files = $$PWD/PlugIns/notifications.appex
+    QMAKE_BUNDLE_DATA += PLUGINS
 
     CONFIG -= bitcode
 
